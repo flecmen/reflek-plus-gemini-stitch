@@ -8,7 +8,7 @@ type Status = { ok: true } | { ok: false; error: string } | null;
 function validate(data: { name: string; email: string; phone: string; message: string }): string | null {
   if (!data.name.trim()) return 'Vyplňte jméno a příjmení.';
   if (!data.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) return 'Zadejte platnou e-mailovou adresu.';
-  if (!data.phone.trim() || !/^[+\d][\d\s\-().]{6,}$/.test(data.phone)) return 'Zadejte platné telefonní číslo.';
+  if (!data.phone.trim() || !/^[+\d][\d\s\-().]{8,}$/.test(data.phone)) return 'Zadejte platné telefonní číslo.';
   if (data.message.trim().length < 20) return 'Zpráva musí mít alespoň 20 znaků.';
   return null;
 }

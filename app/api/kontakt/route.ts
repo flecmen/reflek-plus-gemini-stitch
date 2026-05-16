@@ -16,7 +16,7 @@ export async function POST(request: Request) {
   if (!name?.trim()) return NextResponse.json({ error: 'Chybí jméno.' }, { status: 400 });
   if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     return NextResponse.json({ error: 'Neplatný e-mail.' }, { status: 400 });
-  if (!phone?.trim() || !/^[+\d][\d\s\-().]{6,}$/.test(phone))
+  if (!phone?.trim() || !/^[+\d][\d\s\-().]{8,}$/.test(phone))
     return NextResponse.json({ error: 'Neplatné telefonní číslo.' }, { status: 400 });
   if (!message?.trim() || message.trim().length < 20)
     return NextResponse.json({ error: 'Zpráva musí mít alespoň 20 znaků.' }, { status: 400 });
