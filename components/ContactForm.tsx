@@ -3,20 +3,52 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function ContactForm() {
-  const [formStatus, setFormStatus] = useState<string | null>(null);
+type Status = { ok: true } | { ok: false; error: string } | null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+export default function ContactForm() {
+  const [status, setStatus] = useState<Status>(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormStatus('Poptávka byla úspěšně odeslána (Demo).');
-    setTimeout(() => setFormStatus(null), 3000);
+    setLoading(true);
+    setStatus(null);
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch('/api/kontakt', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? 'Chyba serveru.');
+      setStatus({ ok: true });
+      form.reset();
+    } catch (err) {
+      setStatus({ ok: false, error: err instanceof Error ? err.message : 'Nepodařilo se odeslat zprávu.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <>
-      {formStatus && (
+      {status?.ok && (
+        <div className="mb-4 p-4 bg-green-900/30 border border-green-600 text-green-300 rounded">
+          Poptávka odeslána. Ozveme se vám co nejdříve.
+        </div>
+      )}
+      {status && !status.ok && (
         <div className="mb-4 p-4 bg-reflek-red/20 border border-reflek-red text-white rounded">
-          {formStatus}
+          {status.error}
         </div>
       )}
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -26,6 +58,7 @@ export default function ContactForm() {
               Jméno a příjmení
             </label>
             <input
+              name="name"
               type="text"
               className="w-full bg-deep-charcoal border border-surface-container-high rounded focus:border-reflek-red focus:ring-0 text-on-surface px-4 py-3 font-body-md"
               placeholder="Jan Novák"
@@ -37,6 +70,7 @@ export default function ContactForm() {
               Telefon
             </label>
             <input
+              name="phone"
               type="tel"
               className="w-full bg-deep-charcoal border border-surface-container-high rounded focus:border-reflek-red focus:ring-0 text-on-surface px-4 py-3 font-body-md"
               placeholder="+420..."
@@ -48,6 +82,7 @@ export default function ContactForm() {
             E-mail
           </label>
           <input
+            name="email"
             type="email"
             className="w-full bg-deep-charcoal border border-surface-container-high rounded focus:border-reflek-red focus:ring-0 text-on-surface px-4 py-3 font-body-md"
             placeholder="jan@novak.cz"
@@ -59,9 +94,11 @@ export default function ContactForm() {
             Zpráva
           </label>
           <textarea
+            name="message"
             rows={4}
             className="w-full bg-deep-charcoal border border-surface-container-high rounded focus:border-reflek-red focus:ring-0 text-on-surface px-4 py-3 font-body-md resize-none"
             placeholder="Popište nám, co potřebujete..."
+            required
           />
         </div>
         <div className="pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -73,9 +110,10 @@ export default function ContactForm() {
           </p>
           <button
             type="submit"
-            className="bg-reflek-red text-white font-label-md text-label-md px-8 py-3 rounded uppercase tracking-widest metallic-gradient border-t border-white/20 hover:bg-primary-container transition-colors w-full md:w-auto shrink-0"
+            disabled={loading}
+            className="bg-reflek-red text-white font-label-md text-label-md px-8 py-3 rounded uppercase tracking-widest metallic-gradient border-t border-white/20 hover:bg-primary-container transition-colors w-full md:w-auto shrink-0 disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Odeslat poptávku
+            {loading ? 'Odesílám…' : 'Odeslat poptávku'}
           </button>
         </div>
       </form>
