@@ -63,7 +63,7 @@ export default function ZasadyPage() {
         <section>
           <h2 className="font-headline-md text-headline-md text-white mb-4">4. Jak dlouho vaše údaje uchováváme</h2>
           <p className="text-on-secondary-container">
-            Vaše osobní údaje si ponecháme pouze po dobu nezbytnou k vyřízení vaší poptávky. Pokud se nedomluvíme na spolupráci, vaše údaje do <span className="text-on-surface">[doplňte dobu, např. 6 měsíců]</span> od naší poslední komunikace smažeme. Pokud k uzavření smlouvy dojde, budeme údaje dále zpracovávat podle zákonných povinností (např. pro účetnictví).
+            Vaše osobní údaje uchováváme po dobu nezbytnou k vyřízení vaší poptávky a následné komunikaci. Pokud nedojde k uzavření smlouvy, uchováváme komunikaci po dobu 3 let pro účely ochrany našich právních nároků a případné budoucí spolupráce. Pokud smlouvu uzavřeme, údaje uchováváme po dobu stanovenou zákonem (např. 10 let u daňových dokladů).
           </p>
         </section>
 
