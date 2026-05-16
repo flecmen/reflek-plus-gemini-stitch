@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
@@ -80,6 +81,7 @@ export default function RootLayout({
         <main className="flex-grow flex flex-col">{children}</main>
         <Footer />
         <MobileBottomNav />
+        <Analytics />
       </body>
     </html>
   );
