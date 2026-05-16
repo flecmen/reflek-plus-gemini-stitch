@@ -24,10 +24,11 @@ export default function ZasadyPage() {
           <h2 className="font-headline-md text-headline-md text-white mb-4">1. Kdo vaše údaje zpracovává (Správce)</h2>
           <p className="text-on-secondary-container mb-3">Správcem vašich osobních údajů je společnost:</p>
           <div className="bg-deep-charcoal border border-white/5 rounded p-5 space-y-1 text-on-surface">
-            <p className="font-semibold">Reflek plus s.r.o.</p>
-            <p>Sídlo: <span className="text-on-secondary-container">[doplňte celou adresu sídla]</span></p>
-            <p>IČO: <span className="text-on-secondary-container">[doplňte IČO]</span></p>
-            <p>Zapsaná v obchodním rejstříku vedeném u <span className="text-on-secondary-container">[doplňte soud]</span>, oddíl <span className="text-on-secondary-container">[X]</span>, vložka <span className="text-on-secondary-container">[Y]</span></p>
+            <p className="font-semibold">REFLEK plus s.r.o.</p>
+            <p>Sídlo: Mlýnská 326/13, Brno-střed, 602 00 Brno</p>
+            <p>IČO: 27713458</p>
+            <p>DIČ: CZ27713458</p>
+            <p>Zapsaná v obchodním rejstříku vedeném u Krajského soudu v Brně, oddíl C, vložka <span className="text-on-secondary-container">[doplňte číslo vložky]</span></p>
           </div>
           <p className="text-on-secondary-container mt-3">
             Máte-li jakýkoliv dotaz ohledně svých údajů, kontaktujte nás na:{' '}
@@ -72,9 +73,9 @@ export default function ZasadyPage() {
             Vaše údaje zpracováváme primárně my. K údajům mohou mít přístup pouze naši prověření dodavatelé (zpracovatelé), kteří nám pomáhají s chodem webu:
           </p>
           <ul className="list-disc list-inside space-y-1 text-on-secondary-container ml-2 mb-3">
-            <li>Poskytovatel webhostingu: <span className="text-on-surface">[doplňte název, např. Vercel]</span></li>
+            <li>Poskytovatel webhostingu: Vercel, Inc. (USA) — provozovatel platformy, na které web běží</li>
           </ul>
-          <p className="text-on-secondary-container">Údaje nepředáváme mimo Evropskou unii.</p>
+          <p className="text-on-secondary-container">Vercel zpracovává data v rámci standardních smluvních doložek EU pro přenos do třetích zemí.</p>
         </section>
 
         <section>
