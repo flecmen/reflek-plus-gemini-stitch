@@ -109,6 +109,7 @@ export default function KontaktPage() {
             scrolling="no"
             allowFullScreen
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBVizdQeh3udy11xDc5Ao2YStR2gLc-rfc&q=Reflek%20plus%20&maptype=roadmap&zoom=14"
+            style={{ filter: 'invert(90%) hue-rotate(180deg) contrast(0.85) brightness(0.9)' }}
           />
         </div>
       </section>
