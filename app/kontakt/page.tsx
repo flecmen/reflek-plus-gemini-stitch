@@ -27,7 +27,7 @@ export default function KontaktPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-carbon-black/80 to-carbon-black" />
         </div>
-        <div className="relative z-10 max-w-container-max mx-auto">
+        <div className="relative z-10 max-w-site mx-auto">
           <h1 className="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-6 md:w-2/3">
             Spojte se s námi.
           </h1>
@@ -39,7 +39,7 @@ export default function KontaktPage() {
 
       {/* Contact section */}
       <section className="py-12 md:py-20 px-4 md:px-margin bg-carbon-black">
-        <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+        <div className="max-w-site mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
           {/* Contact info */}
           <div className="md:col-span-5 bg-deep-charcoal border border-surface-container-high rounded-lg p-6 md:p-8 metallic-gradient relative overflow-hidden group hover:border-reflek-red/30 transition-colors">
             <div className="absolute top-0 right-0 w-32 h-32 bg-reflek-red/5 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110" />
@@ -95,6 +95,21 @@ export default function KontaktPage() {
             </p>
             <ContactForm />
           </div>
+        </div>
+      </section>
+
+      {/* Map */}
+      <section className="px-4 md:px-margin pb-12 md:pb-20 bg-carbon-black">
+        <div className="max-w-site mx-auto rounded-lg overflow-hidden border border-white/5">
+          <iframe
+            title="Reflek Plus – mapa"
+            width="100%"
+            height="450"
+            frameBorder="0"
+            scrolling="no"
+            allowFullScreen
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBVizdQeh3udy11xDc5Ao2YStR2gLc-rfc&q=Reflek%20plus%20&maptype=roadmap&zoom=14"
+          />
         </div>
       </section>
     </>
