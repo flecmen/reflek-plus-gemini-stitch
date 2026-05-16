@@ -30,7 +30,7 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-carbon-black via-carbon-black/60 to-carbon-black/20" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-transparent to-carbon-black/80" />
         </div>
-        <div className="relative z-10 w-full max-w-container-max mx-auto flex flex-col items-center text-center">
+        <div className="relative z-10 w-full max-w-site mx-auto flex flex-col items-center text-center">
           <h1 className="font-display-lg text-headline-lg-mobile md:text-display-lg text-white mb-6 max-w-4xl text-balance">
             Precizní autopotahy a čalounění z Brna s tradicí od roku 1996
           </h1>
@@ -49,7 +49,7 @@ export default function HomePage() {
 
       {/* Services */}
       <section className="py-24 px-4 md:px-margin bg-carbon-black relative" id="sluzby">
-        <div className="max-w-container-max mx-auto">
+        <div className="max-w-site mx-auto">
           <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <span className="font-label-sm text-label-sm text-reflek-red uppercase tracking-[0.1em] mb-2 block">

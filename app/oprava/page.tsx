@@ -27,7 +27,7 @@ export default function OpravaPage() {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-carbon-black to-transparent" />
-        <div className="relative z-10 max-w-container-max mx-auto px-4 md:px-margin text-center">
+        <div className="relative z-10 max-w-site mx-auto px-4 md:px-margin text-center">
           <h1 className="font-display-lg text-headline-lg-mobile md:text-display-lg text-white mb-6">
             Precizní <span className="text-reflek-red">Oprava Sedadel</span>
           </h1>
@@ -41,7 +41,7 @@ export default function OpravaPage() {
       </section>
 
       {/* Specializations */}
-      <section className="py-24 px-4 md:px-margin max-w-container-max mx-auto">
+      <section className="py-24 px-4 md:px-margin max-w-site mx-auto">
         <div className="mb-16 text-center">
           <h2 className="font-headline-lg text-headline-lg text-white mb-4">Naše Specializace</h2>
           <div className="h-1 w-16 bg-reflek-red mx-auto" />

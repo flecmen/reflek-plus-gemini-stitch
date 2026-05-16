@@ -18,7 +18,7 @@ export default function Navigation() {
 
   return (
     <header className="sticky top-0 z-50 bg-surface border-b border-white/5 w-full shadow-sm">
-      <div className="flex justify-between items-center w-full px-4 md:px-margin py-4 md:py-base max-w-container-max mx-auto">
+      <div className="flex justify-between items-center w-full px-4 md:px-margin py-4 md:py-base max-w-site mx-auto">
         <Link href="/" className="flex items-center transition-opacity hover:opacity-90">
           <img
             alt="Reflek Plus Logo"

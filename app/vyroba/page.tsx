@@ -27,7 +27,7 @@ export default function VyrobaPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-carbon-black/60 to-carbon-black" />
         </div>
-        <div className="relative z-10 w-full max-w-container-max mx-auto px-4 md:px-margin py-20 md:py-32 flex flex-col items-center text-center">
+        <div className="relative z-10 w-full max-w-site mx-auto px-4 md:px-margin py-20 md:py-32 flex flex-col items-center text-center">
           <div className="inline-flex items-center justify-center px-3 py-1 mb-6 border border-brushed-chrome/30 bg-deep-charcoal/80 rounded-sm font-label-sm text-label-sm text-on-secondary-container uppercase tracking-wider backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-reflek-red mr-2" /> Precizní čalounictví
           </div>
@@ -50,7 +50,7 @@ export default function VyrobaPage() {
       </header>
 
       {/* Content */}
-      <div className="w-full max-w-container-max mx-auto px-4 md:px-margin py-24 space-y-32">
+      <div className="w-full max-w-site mx-auto px-4 md:px-margin py-24 space-y-32">
         <section className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
           <div className="md:col-span-5 flex flex-col justify-center">
             <h2 className="font-headline-lg text-headline-md md:text-headline-lg text-white mb-6">
