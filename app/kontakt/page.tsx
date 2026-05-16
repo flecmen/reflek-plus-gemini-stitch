@@ -1,0 +1,102 @@
+import type { Metadata } from 'next';
+import ContactForm from '@/components/ContactForm';
+
+export const metadata: Metadata = {
+  title: 'Kontakt a nezávazná poptávka Brno',
+  description:
+    'Kontaktujte Reflek Plus v Brně. Adresa: Gajdošova 80, 615 00 Brno. Email: info@reflekplus.cz. Poptejte autopotahy nebo opravu sedadel nezávazně.',
+  alternates: { canonical: '/kontakt' },
+  openGraph: {
+    title: 'Kontakt | Reflek Plus Brno',
+    description:
+      'Kontaktujte nás pro nezávaznou poptávku autopotahů nebo opravy sedadel. Jsme v Brně na Gajdošově 80.',
+    url: '/kontakt',
+  },
+};
+
+export default function KontaktPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative pt-20 md:pt-32 pb-16 md:pb-20 px-4 md:px-margin overflow-hidden bg-surface border-b border-white/5">
+        <div className="absolute inset-0 z-0">
+          <img
+            className="w-full h-full object-cover opacity-20"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNmAzhYWyPiY4Y99_ADQUj2kPQntTnvAkafzmgdqMxH4r_2iA_lBKNt1PQkH0NoNQps4m2FGSmtTDY761Vk-kp_ViRHnMwqQgE9Xu9ihoU5oSRGZJ6Q2YCQ8bTqXHWrmdGKxOR_iEoeGrEYLAZ9poc0iROHUwTeVYKuojJ31GPCCsLGkTlZnWy-zSQBBJqTxwq1P9qwL84l7fLeOlS8BrUm9dUIjwzy3VKWmiKZDDk8Ci3_JCUmMHArzV6_0aoRLJTynfBJm49tcdV"
+            alt=""
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-carbon-black/80 to-carbon-black" />
+        </div>
+        <div className="relative z-10 max-w-container-max mx-auto">
+          <h1 className="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-6 md:w-2/3">
+            Spojte se s námi.
+          </h1>
+          <p className="font-body-lg text-body-lg text-on-secondary-container md:w-1/2">
+            Jsme tu pro vás, ať už potřebujete opravit sedadlo, ušít nové potahy nebo poradit s interiérem vašeho vozu.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact section */}
+      <section className="py-12 md:py-20 px-4 md:px-margin bg-carbon-black">
+        <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+          {/* Contact info */}
+          <div className="md:col-span-5 bg-deep-charcoal border border-surface-container-high rounded-lg p-6 md:p-8 metallic-gradient relative overflow-hidden group hover:border-reflek-red/30 transition-colors">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-reflek-red/5 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-110" />
+            <h2 className="font-headline-md text-headline-md text-on-surface mb-8 relative z-10">Kontaktní údaje</h2>
+            <div className="space-y-6 md:space-y-8 relative z-10">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded bg-surface border border-surface-container-high flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-reflek-red">location_on</span>
+                </div>
+                <div>
+                  <h3 className="font-label-sm text-label-sm text-on-secondary-container uppercase tracking-widest mb-1">Adresa</h3>
+                  <p className="font-body-md text-body-md text-on-surface">
+                    Gajdošova 80<br />615 00 Brno
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded bg-surface border border-surface-container-high flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-reflek-red">mail</span>
+                </div>
+                <div>
+                  <h3 className="font-label-sm text-label-sm text-on-secondary-container uppercase tracking-widest mb-1">E-mail</h3>
+                  <a
+                    href="mailto:info@reflekplus.cz"
+                    className="font-body-md text-body-md text-on-surface hover:text-reflek-red transition-colors"
+                  >
+                    info@reflekplus.cz
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded bg-surface border border-surface-container-high flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-reflek-red">call</span>
+                </div>
+                <div>
+                  <h3 className="font-label-sm text-label-sm text-on-secondary-container uppercase tracking-widest mb-1">Telefon</h3>
+                  <a
+                    href="tel:+420123456789"
+                    className="block font-body-md text-body-md text-on-surface hover:text-reflek-red transition-colors"
+                  >
+                    +420 123 456 789
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Form */}
+          <div className="md:col-span-7 bg-surface border border-surface-container-high rounded-lg p-6 md:p-8">
+            <h2 className="font-headline-md text-headline-md text-on-surface mb-2">Nezávazná poptávka</h2>
+            <p className="font-body-md text-body-md text-on-secondary-container mb-8">
+              Napište nám, co pro vás můžeme udělat.
+            </p>
+            <ContactForm />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

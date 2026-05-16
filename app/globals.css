@@ -1,26 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Colors */
+  --color-surface-variant: #353534;
+  --color-brushed-chrome: #E5E5E5;
+  --color-on-secondary-fixed: #1a1c1c;
+  --color-secondary-container: #484949;
+  --color-on-error-container: #ffdad6;
+  --color-on-surface: #e5e2e1;
+  --color-primary-container: #b10000;
+  --color-primary-fixed: #ffdad4;
+  --color-on-tertiary-fixed: #1b1c1c;
+  --color-on-tertiary: #303030;
+  --color-primary: #ffb4a8;
+  --color-on-secondary-fixed-variant: #464747;
+  --color-error-container: #93000a;
+  --color-on-secondary: #2f3131;
+  --color-surface-container-highest: #353534;
+  --color-deep-charcoal: #1A1A1A;
+  --color-secondary-fixed: #e3e2e2;
+  --color-on-primary-container: #ffbcb1;
+  --color-secondary: #c7c6c6;
+  --color-surface-tint: #ffb4a8;
+  --color-on-surface-variant: #e6bdb7;
+  --color-on-error: #690005;
+  --color-carbon-black: #0D0D0D;
+  --color-tertiary: #c8c6c6;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface: #131313;
+  --color-surface-container-low: #1c1b1b;
+  --color-outline-variant: #5c403b;
+  --color-surface-container-high: #2a2a2a;
+  --color-on-tertiary-container: #cdcbcb;
+  --color-inverse-primary: #bd1008;
+  --color-on-tertiary-fixed-variant: #474747;
+  --color-inverse-surface: #e5e2e1;
+  --color-inverse-on-surface: #313030;
+  --color-surface-dim: #131313;
+  --color-surface-bright: #393939;
+  --color-tertiary-fixed: #e4e2e1;
+  --color-on-primary-fixed-variant: #930000;
+  --color-outline: #ac8883;
+  --color-on-secondary-container: #b8b8b8;
+  --color-on-primary-fixed: #410000;
+  --color-tertiary-fixed-dim: #c8c6c6;
+  --color-reflek-red: #B10000;
+  --color-on-primary: #690000;
+  --color-secondary-fixed-dim: #c7c6c6;
+  --color-tertiary-container: #565656;
+  --color-error: #ffb4ab;
+  --color-surface-container: #201f1f;
+  --color-primary-fixed-dim: #ffb4a8;
+  --color-on-background: #e5e2e1;
+  --color-background: #131313;
+
+  /* Spacing */
+  --spacing-base: 8px;
+  --spacing-margin: 32px;
+  --spacing-gutter: 24px;
+
+  /* Width */
+  --width-container-max: 1280px;
+
+  /* Border radius */
+  --radius: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  /* Font families */
+  --font-label-sm: var(--font-inter);
+  --font-body-md: var(--font-inter);
+  --font-body-lg: var(--font-inter);
+  --font-label-md: var(--font-inter);
+  --font-headline-md: var(--font-montserrat);
+  --font-headline-lg: var(--font-montserrat);
+  --font-headline-lg-mobile: var(--font-montserrat);
+  --font-display-lg: var(--font-montserrat);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Typography scale */
+@layer utilities {
+  .text-label-sm {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+  .text-body-md {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+  .text-body-lg {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+  .text-label-md {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  .text-headline-md {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+  }
+  .text-headline-lg {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+  .text-headline-lg-mobile {
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 700;
+  }
+  .text-display-lg {
+    font-size: 56px;
+    line-height: 64px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
 }
 
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+/* Design system utilities */
+.bg-machined {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+}
+.btn-primary {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.glass-card {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.metallic-gradient {
+  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+}
+.glass-panel {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.machined-border {
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(229, 229, 229, 0.2);
+}
+.machined-button {
+  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%), #B10000;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: max(884px, 100dvh);
+  background-color: #0D0D0D;
+  color: #e5e2e1;
+  -webkit-font-smoothing: antialiased;
 }
