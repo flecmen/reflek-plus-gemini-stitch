@@ -11,16 +11,16 @@ export async function POST(request: Request) {
 
   const body = await request.json().catch(() => null);
 
-  if (!body?.name || !body?.email || !body?.message) {
-    return NextResponse.json({ error: 'Chybí povinná pole.' }, { status: 400 });
-  }
+  const { name, email, phone, message } = (body ?? {}) as Record<string, string>;
 
-  const { name, email, phone, message } = body as {
-    name: string;
-    email: string;
-    phone?: string;
-    message: string;
-  };
+  if (!name?.trim()) return NextResponse.json({ error: 'Chybí jméno.' }, { status: 400 });
+  if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+    return NextResponse.json({ error: 'Neplatný e-mail.' }, { status: 400 });
+  if (!phone?.trim() || !/^[+\d][\d\s\-().]{6,}$/.test(phone))
+    return NextResponse.json({ error: 'Neplatné telefonní číslo.' }, { status: 400 });
+  if (!message?.trim() || message.trim().length < 20)
+    return NextResponse.json({ error: 'Zpráva musí mít alespoň 20 znaků.' }, { status: 400 });
+
 
   const { error } = await resend.emails.send({
     from: FROM,

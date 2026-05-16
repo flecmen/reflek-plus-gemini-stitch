@@ -5,13 +5,22 @@ import { useState } from 'react';
 
 type Status = { ok: true } | { ok: false; error: string } | null;
 
+function validate(data: { name: string; email: string; phone: string; message: string }): string | null {
+  if (!data.name.trim()) return 'Vyplňte jméno a příjmení.';
+  if (!data.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) return 'Zadejte platnou e-mailovou adresu.';
+  if (!data.phone.trim() || !/^[+\d][\d\s\-().]{6,}$/.test(data.phone)) return 'Zadejte platné telefonní číslo.';
+  if (data.message.trim().length < 20) return 'Zpráva musí mít alespoň 20 znaků.';
+  return null;
+}
+
+const inputClass = 'w-full bg-deep-charcoal border border-surface-container-high rounded focus:border-reflek-red focus:ring-0 text-on-surface px-4 py-3 font-body-md';
+
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
     setStatus(null);
 
     const form = e.currentTarget;
@@ -22,6 +31,13 @@ export default function ContactForm() {
       message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
     };
 
+    const validationError = validate(data);
+    if (validationError) {
+      setStatus({ ok: false, error: validationError });
+      return;
+    }
+
+    setLoading(true);
     try {
       const res = await fetch('/api/kontakt', {
         method: 'POST',
@@ -51,54 +67,39 @@ export default function ContactForm() {
           {status.error}
         </div>
       )}
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block font-label-sm text-label-sm text-on-secondary-container uppercase mb-2">
-              Jméno a příjmení
+              Jméno a příjmení <span className="text-reflek-red">*</span>
             </label>
-            <input
-              name="name"
-              type="text"
-              className="w-full bg-deep-charcoal border border-surface-container-high rounded focus:border-reflek-red focus:ring-0 text-on-surface px-4 py-3 font-body-md"
-              placeholder="Jan Novák"
-              required
-            />
+            <input name="name" type="text" className={inputClass} placeholder="Jan Novák" required />
           </div>
           <div>
             <label className="block font-label-sm text-label-sm text-on-secondary-container uppercase mb-2">
-              Telefon
+              Telefon <span className="text-reflek-red">*</span>
             </label>
-            <input
-              name="phone"
-              type="tel"
-              className="w-full bg-deep-charcoal border border-surface-container-high rounded focus:border-reflek-red focus:ring-0 text-on-surface px-4 py-3 font-body-md"
-              placeholder="+420..."
-            />
+            <input name="phone" type="tel" className={inputClass} placeholder="+420 123 456 789" required />
           </div>
         </div>
         <div>
           <label className="block font-label-sm text-label-sm text-on-secondary-container uppercase mb-2">
-            E-mail
+            E-mail <span className="text-reflek-red">*</span>
           </label>
-          <input
-            name="email"
-            type="email"
-            className="w-full bg-deep-charcoal border border-surface-container-high rounded focus:border-reflek-red focus:ring-0 text-on-surface px-4 py-3 font-body-md"
-            placeholder="jan@novak.cz"
-            required
-          />
+          <input name="email" type="email" className={inputClass} placeholder="jan@novak.cz" required />
         </div>
         <div>
           <label className="block font-label-sm text-label-sm text-on-secondary-container uppercase mb-2">
-            Zpráva
+            Zpráva <span className="text-reflek-red">*</span>
+            <span className="ml-2 normal-case text-on-secondary-container/60">(min. 20 znaků)</span>
           </label>
           <textarea
             name="message"
             rows={4}
-            className="w-full bg-deep-charcoal border border-surface-container-high rounded focus:border-reflek-red focus:ring-0 text-on-surface px-4 py-3 font-body-md resize-none"
+            className={`${inputClass} resize-none`}
             placeholder="Popište nám, co potřebujete..."
             required
+            minLength={20}
           />
         </div>
         <div className="pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
