@@ -57,6 +57,7 @@ const jsonLd = {
     postalCode: '615 00',
     addressCountry: 'CZ',
   },
+  openingHours: 'Mo-Fr 07:00-17:00',
 };
 
 export default function RootLayout({

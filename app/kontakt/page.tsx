@@ -84,6 +84,31 @@ export default function KontaktPage() {
                   </a>
                 </div>
               </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded bg-surface border border-surface-container-high flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined text-reflek-red">schedule</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-label-sm text-label-sm text-on-secondary-container uppercase tracking-widest mb-3">Otevírací doba</h3>
+                  <div className="space-y-1">
+                    {[
+                      { day: 'Po – Pá', hours: '7:00 – 17:00', open: true },
+                      { day: 'So', hours: 'Zavřeno', open: false },
+                      { day: 'Ne', hours: 'Zavřeno', open: false },
+                      { day: 'Svátky', hours: 'Zavřeno', open: false },
+                    ].map(({ day, hours, open }) => (
+                      <div key={day} className="flex justify-between gap-4 font-body-md text-body-md">
+                        <span className="text-on-secondary-container">{day}</span>
+                        <span className={open ? 'text-on-surface' : 'text-on-secondary-container/50'}>{hours}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-3 font-label-sm text-label-sm text-on-secondary-container/70 italic">
+                    Po telefonické domluvě možné setkání i mimo pracovní dobu.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
