@@ -28,7 +28,7 @@ export default function ZasadyPage() {
             <p>Sídlo: Mlýnská 326/13, Brno-střed, 602 00 Brno</p>
             <p>IČO: 27713458</p>
             <p>DIČ: CZ27713458</p>
-            <p>Zapsaná v obchodním rejstříku vedeném u Krajského soudu v Brně, oddíl C, vložka <span className="text-on-secondary-container">[doplňte číslo vložky]</span></p>
+            <p>Zapsaná v obchodním rejstříku vedeném u Krajského soudu v Brně, oddíl C, vložka 53694</p>
           </div>
           <p className="text-on-secondary-container mt-3">
             Máte-li jakýkoliv dotaz ohledně svých údajů, kontaktujte nás na:{' '}
