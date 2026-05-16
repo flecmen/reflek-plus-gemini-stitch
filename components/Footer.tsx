@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -9,8 +11,13 @@ export default function Footer() {
             © 1996–{year} Reflek Plus s.r.o.
           </p>
         </div>
-        <div className="font-body-md text-[12px] md:text-body-md text-on-secondary-container text-center hidden md:block">
-          © 1996–{year} Reflek Plus s.r.o.
+        <div className="flex flex-col items-center md:items-end gap-2">
+          <Link href="/zasady" className="font-label-sm text-label-sm text-on-secondary-container hover:text-on-surface transition-colors">
+            Zásady ochrany osobních údajů
+          </Link>
+          <span className="font-body-md text-[12px] md:text-body-md text-on-secondary-container">
+            © 1996–{year} Reflek Plus s.r.o.
+          </span>
         </div>
       </div>
     </footer>

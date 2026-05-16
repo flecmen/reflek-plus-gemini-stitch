@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function ContactForm() {
@@ -63,10 +64,16 @@ export default function ContactForm() {
             placeholder="Popište nám, co potřebujete..."
           />
         </div>
-        <div className="pt-4 flex justify-end">
+        <div className="pt-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p className="font-label-sm text-label-sm text-on-secondary-container max-w-sm">
+            Odesláním souhlasíte se zpracováním osobních údajů za účelem odpovědi na vaši poptávku.{' '}
+            <Link href="/zasady" className="text-reflek-red hover:underline">
+              Zásady ochrany osobních údajů
+            </Link>
+          </p>
           <button
             type="submit"
-            className="bg-reflek-red text-white font-label-md text-label-md px-8 py-3 rounded uppercase tracking-widest metallic-gradient border-t border-white/20 hover:bg-primary-container transition-colors w-full md:w-auto"
+            className="bg-reflek-red text-white font-label-md text-label-md px-8 py-3 rounded uppercase tracking-widest metallic-gradient border-t border-white/20 hover:bg-primary-container transition-colors w-full md:w-auto shrink-0"
           >
             Odeslat poptávku
           </button>
